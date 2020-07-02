@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct MemoryGame<GameContent> {
-    
+struct MemoryGame<GameContent> {    
     var cards: Array<Card> = Array()
     
     init(numberOfPairs: Int, contentFactory: (Int) -> GameContent) {

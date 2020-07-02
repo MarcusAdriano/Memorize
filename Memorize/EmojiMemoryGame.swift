@@ -8,8 +8,7 @@
 
 import SwiftUI
 
-class EmojiMemoryGame {
-    
+class EmojiMemoryGame {    
     private var model: MemoryGame<String>
     
     init() {

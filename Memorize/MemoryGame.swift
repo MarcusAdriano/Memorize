@@ -19,7 +19,7 @@ struct MemoryGame<GameContent> {
         }
     }
     
-    func choose(card: Card) {
+    mutating func choose(card: Card) {
         print("Card was choosen: \(card)")
     }
     

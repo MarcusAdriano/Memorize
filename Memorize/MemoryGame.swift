@@ -14,18 +14,19 @@ struct MemoryGame<GameContent> {
     init(numberOfPairs: Int, contentFactory: (Int) -> GameContent) {
         for index in 0..<numberOfPairs {
             let content = contentFactory(index)
-            cards.append(Card(id: index * 2 + 1, content: content))
+            cards.append(Card(id: index * 2, content: content))
             cards.append(Card(id: index * 2 + 1, content: content))
         }
     }
     
-    func choose(card: Card) {
-        print("Card was choosen: \(card)")
+    mutating func choose(card: Card) {
+        let chosenIndex = self.cards.firstIndex(matching: card)!
+        self.cards[chosenIndex].isFaceUp = !self.cards[chosenIndex].isFaceUp
     }
     
     struct Card: Identifiable {
         var id: Int
-        var isFaceUp: Bool = false
+        var isFaceUp: Bool = true
         var isMatched: Bool = false
         var content: GameContent
     }

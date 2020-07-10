@@ -35,7 +35,7 @@ struct CardView: View {
                 RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: lineEdgeWidth)
                 Text(card.content)                
             } else {
-                RoundedRectangle(cornerRadius: cornerRadius).fill(Color.orange)
+                RoundedRectangle(cornerRadius: cornerRadius).fill(fillColor)
             }
         }
     }
@@ -43,5 +43,6 @@ struct CardView: View {
     // MARK: - Constants
 
     let cornerRadius: CGFloat = 10.0
-    let lineEdgeWidth: Int = 3
+    let lineEdgeWidth: CGFloat = 3
+    let fillColor = Color.orange
 }

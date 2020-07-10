@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct EmojiMemoryGameView: View {
-    var viewModel: EmojiMemoryGame
+    @ObservedObject var viewModel: EmojiMemoryGame
     
     var body: some View {
         HStack {
@@ -30,19 +30,18 @@ struct CardView: View {
     
     var body: some View {
         ZStack {
-            if (card.isFaceUp) {
-                RoundedRectangle(cornerRadius: 10.0).fill(Color.orange)
+            if card.isFaceUp {
+                RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
+                RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: lineEdgeWidth)
+                Text(card.content)                
             } else {
-                RoundedRectangle(cornerRadius: 10.0).fill(Color.white)
-                RoundedRectangle(cornerRadius: 10.0).stroke(lineWidth: 3)
-                Text(card.content)
+                RoundedRectangle(cornerRadius: cornerRadius).fill(Color.orange)
             }
         }
     }
-}
+    
+    // MARK: - Constants
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        EmojiMemoryGameView(viewModel: EmojiMemoryGame())
-    }
+    let cornerRadius: CGFloat = 10.0
+    let lineEdgeWidth: Int = 3
 }

@@ -10,7 +10,20 @@ import Foundation
 
 struct MemoryGame<CardContent> where CardContent: Equatable {
     var cards: Array<Card> = Array()
-    var indexOfTheOneAndOnlyFaceUpCard: Int?
+    var indexOfTheOneAndOnlyFaceUpCard: Int? {
+        get {
+            let  faceUpCardIndices = cards.filter() { $0.isFaceUp }
+            if faceUpCardIndices.count == 1 {
+                return faceUpCardIndices.first?.id
+            }
+            return nil
+        }
+        set {
+            for index in cards.indices {
+                cards[index].isFaceUp = index == newValue
+            }
+        }
+    }
     
     init(numberOfPairs: Int, contentFactory: (Int) -> CardContent) {
         for index in 0..<numberOfPairs {
@@ -27,14 +40,10 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                     cards[chosenIndex].isMatched = true
                     cards[potentialMatchIndex].isMatched = true
                 }
-                indexOfTheOneAndOnlyFaceUpCard = nil
+                cards[chosenIndex].isFaceUp = true
             } else {
-                for index in cards.indices {
-                    cards[index].isFaceUp = false
-                }
                 indexOfTheOneAndOnlyFaceUpCard = chosenIndex
             }
-            self.cards[chosenIndex].isFaceUp = true
         }
         
     }

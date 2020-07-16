@@ -32,7 +32,7 @@ struct CardView: View {
         }
     }
     
-    func body(for size: CGSize) -> some View {
+    private func body(for size: CGSize) -> some View {
         ZStack {
             if self.card.isFaceUp {
                 RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
@@ -48,9 +48,15 @@ struct CardView: View {
     
     // MARK: - Constants
 
-    let cornerRadius: CGFloat = 10.0
-    let lineEdgeWidth: CGFloat = 3
-    func fontSize(for size: CGSize) -> CGFloat {
+    private let cornerRadius: CGFloat = 10.0
+    private let lineEdgeWidth: CGFloat = 3
+    private func fontSize(for size: CGSize) -> CGFloat {
         min(size.width, size.height) * 0.75
+    }
+}
+
+struct EmojiMemoryGameView_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }

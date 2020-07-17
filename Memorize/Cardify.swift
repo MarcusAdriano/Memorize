@@ -28,6 +28,7 @@ struct Cardify: ViewModifier {
     private let lineEdgeWidth: CGFloat = 3
 }
 
+// MARK: - View Extension
 extension View {
     func cardify(isFaceUp: Bool) -> some View {
         self.modifier(Cardify(isFaceUp: isFaceUp))

@@ -22,7 +22,7 @@ struct EmojiMemoryGameView: View {
             .foregroundColor(Color.orange)
     }
 }
-
+// MARK: - CardView
 struct CardView: View {    
     var card: MemoryGame<String>.Card
     
@@ -37,6 +37,9 @@ struct CardView: View {
             if self.card.isFaceUp {
                 RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
                 RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: lineEdgeWidth)
+                Pie(startAngle: Angle(degrees: 0-90), endAngle: Angle(degrees: 110-90), clockwise: true)
+                    .opacity(0.4)
+                    .padding(5)
                 Text(card.content)
             } else if !self.card.isMatched{
                 RoundedRectangle(cornerRadius: cornerRadius).fill()
@@ -45,9 +48,7 @@ struct CardView: View {
         .font(Font.system(size: fontSize(for: size)))
     }
     
-    
     // MARK: - Constants
-
     private let cornerRadius: CGFloat = 10.0
     private let lineEdgeWidth: CGFloat = 3
     private func fontSize(for size: CGSize) -> CGFloat {
@@ -55,8 +56,11 @@ struct CardView: View {
     }
 }
 
+// MARK: - Previews
 struct EmojiMemoryGameView_Previews: PreviewProvider {
     static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+        let game = EmojiMemoryGame()
+        game.choose(card: game.cards[2])
+        return EmojiMemoryGameView(viewModel: game)
     }
 }

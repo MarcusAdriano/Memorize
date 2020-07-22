@@ -119,12 +119,12 @@
 		2CEB09B724ABFEC90069F4D9 /* Memorize */ = {
 			isa = PBXGroup;
 			children = (
-				2CEB09F324AE08CD0069F4D9 /* MemoryGame.swift */,
 				2CD9DFF324BE2E5000DD8B48 /* Array+Only.swift */,
 				2C2CF6FF24B80A460072BCED /* Array+Identifiable.swift */,
 				2CD9DFF724C1385B00DD8B48 /* Cardify.swift */,
 				2CD9DFEB24BCEB6200DD8B48 /* GridLayout.swift */,
 				2CD9DFED24BD29A400DD8B48 /* Grid.swift */,
+				2CEB09F324AE08CD0069F4D9 /* MemoryGame.swift */,
 				2CD9DFF524C12AB400DD8B48 /* Pie.swift */,
 				2CEB09B824ABFEC90069F4D9 /* AppDelegate.swift */,
 				2CEB09BA24ABFEC90069F4D9 /* SceneDelegate.swift */,

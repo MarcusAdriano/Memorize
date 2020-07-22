@@ -15,7 +15,7 @@ struct EmojiMemoryGameView: View {
         VStack {
             Grid(items: viewModel.cards) { card in
                 CardView(card: card).onTapGesture {
-                    withAnimation(.linear) {
+                    withAnimation(.linear(duration: 0.5)) {
                         self.viewModel.choose(card: card)
                     }
                 }

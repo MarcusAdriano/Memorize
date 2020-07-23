@@ -21,14 +21,14 @@ struct EmojiMemoryGameView: View {
                 }
                     .padding(5)
             }
+                .padding()
+                .foregroundColor(Color.orange)
             Button(action: {
                 withAnimation(.easeInOut) {
                    self.viewModel.resetGame()
                 }
             }, label: { Text("New Game") })
         }
-        .padding()
-        .foregroundColor(Color.orange)
     }
 }
 // MARK: - CardView
@@ -45,7 +45,7 @@ struct CardView: View {
     
     private func startBonusTimeAnimation() {
         animatedBonusRamaining = card.bonusRemaining
-        withAnimation(.linear(duration: card.bonusRemaining)) {
+        withAnimation(.linear(duration: card.bonusTimeRemaining)) {
             animatedBonusRamaining = 0
         }
     }

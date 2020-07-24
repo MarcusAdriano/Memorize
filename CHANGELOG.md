@@ -18,3 +18,9 @@ Reactive Layout.
     - Create Cardify modifier to help create new Memory Game's card;
     - Create a .cardify modifier as View extension.
 
+- ### v0.5
+
+    - Using animation
+    - Create a bonus logic
+    - Create a bonus animation
+
